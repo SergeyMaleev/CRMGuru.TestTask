@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRMGuru.TestTask.DAL.MSSQL\CRMGuru.TestTask.DAL.MSSQL.csproj" />
+    <ProjectReference Include="..\CRMGuru.TestTask.DAL\CRMGuru.TestTask.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
