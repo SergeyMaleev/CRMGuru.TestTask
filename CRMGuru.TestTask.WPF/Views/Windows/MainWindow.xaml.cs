@@ -4,6 +4,8 @@ namespace CRMGuru.TestTask.WPF.Views.Windows
     
     public partial class MainWindow
     {
-        public MainWindow() => InitializeComponent();        
+        public MainWindow() => InitializeComponent(); 
+        
+
     }
 }

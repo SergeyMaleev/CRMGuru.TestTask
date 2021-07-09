@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\CRMGuru.TestTask.Interfaces\CRMGuru.TestTask.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

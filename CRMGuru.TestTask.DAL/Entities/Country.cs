@@ -1,4 +1,4 @@
-﻿using CRMGuru.TestTask.DAL.Entities.Interfaces;
+﻿using CRMGuru.TestTask.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +17,7 @@ namespace CRMGuru.TestTask.DAL.Entities
         /// <summary>
         /// Название страны
         /// </summary>
-        public string CountryName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Код страны

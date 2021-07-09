@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CRMGuru.TestTask.DAL.Context
 {
-    class EFContext : DbContext
+    public class EFContext : DbContext
     {
         public DbSet<City> Cities { get; set; }
 

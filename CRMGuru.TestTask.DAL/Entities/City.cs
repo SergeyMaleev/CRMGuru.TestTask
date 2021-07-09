@@ -1,4 +1,4 @@
-﻿using CRMGuru.TestTask.DAL.Entities.Interfaces;
+﻿using CRMGuru.TestTask.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,6 +19,6 @@ namespace CRMGuru.TestTask.DAL.Entities
         /// <summary>
         /// Название
         /// </summary>
-        public string CityName { get; set; }
+        public string Name { get; set; }
     }
 }
