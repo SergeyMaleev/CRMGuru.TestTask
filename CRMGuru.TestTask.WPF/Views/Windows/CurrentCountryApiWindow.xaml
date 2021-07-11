@@ -1,0 +1,142 @@
+﻿<Window x:Class="CRMGuru.TestTask.WPF.Views.Windows.CurrentCountryApiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRMGuru.TestTask.WPF.Views.Windows"
+        mc:Ignorable="d"
+        Title="CurrentCountryApiWindow" Height="450" Width="500"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="379*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="30,5,0,5" Grid.Row="7" Width="440">
+            <Button Width="200" Margin="10" Content="Сохранить" Click="Save_Click">
+               
+            </Button>
+            <Button Width="200" Margin="10" Content="Отмена" Click="Сancel_Click"></Button>
+        </StackPanel>
+        <TextBlock 
+                 Grid.Column="0"
+                 Text="Название:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="120" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="1" 
+                 Grid.Column="0"
+                 Text="Код страны:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="120" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="2" 
+                 Grid.Column="0"
+                 Text="Столица:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="120" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="3" 
+                 Grid.Column="0"
+                 Text="Площадь:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="120" Margin="64,0,0,0" Height="26"/>
+        <TextBlock Grid.Row="4" 
+                 Grid.Column="0"
+                 Text="Наседение:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="120" Margin="64,0,0,0" Height="26"/>
+        <TextBlock Grid.Row="5" 
+                 Grid.Column="0"
+                 Text="Регион:"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" Margin="64,5,0,0" Height="26"/>
+
+        <TextBlock 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.Name}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="auto" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="1" 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.CountryCode, UpdateSourceTrigger=PropertyChanged}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="auto" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="2" 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.Сapital, UpdateSourceTrigger=PropertyChanged}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="auto" Margin="64,0,0,0" Height="25"/>
+        <TextBlock Grid.Row="3" 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.Area, UpdateSourceTrigger=PropertyChanged}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="auto" Margin="64,0,0,0" Height="26"/>
+        <TextBlock Grid.Row="4" 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.Population, UpdateSourceTrigger=PropertyChanged}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Center" 
+                 Width="auto" Margin="64,0,0,0" Height="26"/>
+        <TextBlock Grid.Row="5" 
+                 Grid.Column="1"
+                 Text="{Binding CountryModel.Region, UpdateSourceTrigger=PropertyChanged}"
+                 FontSize="18" 
+                 FontWeight="Bold"  
+                 HorizontalAlignment="Left"                  
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="auto" Margin="64,5,0,0" Height="26"/>
+
+    </Grid>
+</Window>

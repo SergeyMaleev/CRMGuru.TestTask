@@ -8,9 +8,9 @@ using System.Text;
 namespace CRMGuru.TestTask.DAL.Entities
 {
     /// <summary>
-    /// Город
+    /// Регион
     /// </summary>
-    public class City : IEntity
+    public class RegionEntity : IEntity
     {
         [Key]
         [ForeignKey("Country")]

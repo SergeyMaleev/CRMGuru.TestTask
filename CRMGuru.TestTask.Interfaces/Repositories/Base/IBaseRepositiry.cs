@@ -9,6 +9,6 @@ namespace CRMGuru.TestTask.Interfaces.Repositories.Base
 {
     public interface IBaseRepositiry
     {
-        Task<T> Get<T>(string name, CancellationToken cancel = default) where T : class;
+        Task<T> Get<T>(string name, CancellationToken cancel = default) where T : class, IEntity;
     }
 }

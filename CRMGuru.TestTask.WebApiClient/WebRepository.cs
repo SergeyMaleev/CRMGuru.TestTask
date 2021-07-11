@@ -18,14 +18,33 @@ namespace CRMGuru.TestTask.WebApiClient
 
         public WebRepository(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<T> Get<T>(string name, CancellationToken cancel = default) where T: class
+        public async Task<T> Get<T>(string name, CancellationToken cancel = default) where T: class, IEntity
         {
-            return await _httpClient.GetFromJsonAsync<T>(name, cancel).ConfigureAwait(false);
+
+            var res = await _httpClient.GetAsync(name, cancel).ConfigureAwait(false);
+            
+            if (res.IsSuccessStatusCode)
+            {
+                return await _httpClient.GetFromJsonAsync<T>(name, cancel).ConfigureAwait(false);
+            }
+            else
+            {                     
+                throw new Exception(await res.Content.ReadAsStringAsync());
+            }          
         }
 
-        public async Task<T[]> GetArray<T>(string name, CancellationToken cancel = default) where T : class
+        public async Task<IEnumerable<T>> GetArray<T>(string name, CancellationToken cancel = default) where T : class
         {
-            return await _httpClient.GetFromJsonAsync<T[]>(name, cancel).ConfigureAwait(false);
+            var res = await _httpClient.GetAsync(name, cancel).ConfigureAwait(false);
+            
+            if (res.IsSuccessStatusCode)
+            {
+                return await _httpClient.GetFromJsonAsync<T[]>(name, cancel).ConfigureAwait(false);
+            }
+            else
+            {                              
+                throw new Exception(await res.Content.ReadAsStringAsync());
+            }         
         }
     }
 }

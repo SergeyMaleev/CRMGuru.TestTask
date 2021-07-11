@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CRMGuru.TestTask.WPF
 {
-    public class ServiceLocator
+    internal class ServiceLocator
     {
         public MainWindowViewModel MainModel => App.Services.GetRequiredService<MainWindowViewModel>();
     }

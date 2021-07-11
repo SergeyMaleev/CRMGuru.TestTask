@@ -8,11 +8,11 @@ namespace CRMGuru.TestTask.DAL.Context
 {
     public class EFContext : DbContext
     {
-        public DbSet<City> Cities { get; set; }
+        public DbSet<CityEntity> Cities { get; set; }
 
-        public DbSet<Region> Regions { get; set; }
+        public DbSet<RegionEntity> Regions { get; set; }
 
-        public DbSet<Country> Countries { get; set; }
+        public DbSet<CountryEntity> Countries { get; set; }
 
         public EFContext(DbContextOptions<EFContext> options) : base (options) { }
     }

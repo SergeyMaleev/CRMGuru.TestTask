@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,14 +32,16 @@ namespace CRMGuru.TestTask.DAL.Repositories
 
         }
 
-        public async Task<T> Get<T>(string name, CancellationToken cancel = default) where T : class
+        public async Task<T> Get<T>(string name, CancellationToken cancel = default) where T : class, IEntity
         {
-            return await _db.Set<T>().FindAsync(new object[] { name }, cancel).ConfigureAwait(false);
+            return await _db.Set<T>().FirstOrDefaultAsync(x => x.Name == name, cancel).ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<T>> GetAll<T>(CancellationToken cancel = default) where T : class, IEntity
+        public async Task<IQueryable<T>> GetAll<T>(CancellationToken cancel = default) where T : class, IEntity
         {
-            return await _db.Set<T>().ToArrayAsync(cancel).ConfigureAwait(false);
+            
+            var result = await Task.Run(() => _db.Set<T>(), cancel).ConfigureAwait(false);
+            return result;
         }
 
         public async Task<T> Update<T>(T item, CancellationToken cancel) where T : class, IEntity
@@ -48,6 +51,6 @@ namespace CRMGuru.TestTask.DAL.Repositories
             _db.Update(item);
             await _db.SaveChangesAsync(cancel).ConfigureAwait(false);
             return item;
-        }
+        }  
     }
 }

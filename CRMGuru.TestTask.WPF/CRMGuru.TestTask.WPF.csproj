@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="DevExpressMvvm" Version="20.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CRMGuru.TestTask.DAL.MSSQL\CRMGuru.TestTask.DAL.MSSQL.csproj" />
     <ProjectReference Include="..\CRMGuru.TestTask.DAL\CRMGuru.TestTask.DAL.csproj" />
+    <ProjectReference Include="..\CRMGuru.TestTask.Implementations\CRMGuru.TestTask.Implementations.csproj" />
     <ProjectReference Include="..\CRMGuru.TestTask.WebApiClient\CRMGuru.TestTask.WebApiClient.csproj" />
   </ItemGroup>
 

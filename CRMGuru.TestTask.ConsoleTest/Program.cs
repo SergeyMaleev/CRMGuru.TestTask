@@ -1,11 +1,17 @@
-﻿using CRMGuru.TestTask.DAL.Context;
+﻿using AutoMapper;
+using CRMGuru.TestTask.DAL.Context;
 using CRMGuru.TestTask.DAL.Repositories;
+using CRMGuru.TestTask.Implementations.Profiles;
+using CRMGuru.TestTask.Implementations.Services;
 using CRMGuru.TestTask.Interfaces.Repositories;
+using CRMGuru.TestTask.Interfaces.Services;
 using CRMGuru.TestTask.WebApiClient;
-using CRMGuru.TestTask.WebApiClient.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CRMGuru.TestTask.ConsoleTest
@@ -25,11 +31,19 @@ namespace CRMGuru.TestTask.ConsoleTest
 
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
-            //services.AddDbContext<EFContext>(options => options.UseSqlServer(
-            //    host.Configuration.GetConnectionString("DefaultConnection"), o => o.MigrationsAssembly("CRMGuru.TestTask.DAL.MSSQL")));
-           
+            services.AddDbContext<EFContext>(options => options.UseSqlServer(
+                host.Configuration.GetConnectionString("DefaultConnection"), o => o.MigrationsAssembly("CRMGuru.TestTask.DAL.MSSQL")));
+
             services.AddScoped<IDbRepository, EFRepositoty>();
             services.AddHttpClient<IWebRepository, WebRepository>(client => client.BaseAddress = new Uri(host.Configuration["RestCountries"]));
+
+            var mapperConfig = new MapperConfiguration(mc => mc.AddProfile(new CountryProfile()));
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+         
+            services.AddScoped<IAddCountryService, AddCountryService>();
+            services.AddScoped<ILoadContryService, LoadContryService>();
         }
 
 
@@ -40,9 +54,16 @@ namespace CRMGuru.TestTask.ConsoleTest
             using var host = Hosting;
             await host.StartAsync();
 
-            var web = Hosting.Services.GetRequiredService<IWebRepository>();
+           
+            var loadContry = Hosting.Services.GetRequiredService<ILoadContryService>();
 
-           var k = await web.GetArray<RestcountriesModel>("moscow");
+            var addCountry = Hosting.Services.GetRequiredService<IAddCountryService>();
+
+            var country = loadContry.LoadContryWebApi("Poland").Result;
+
+            //await addCountry.AddCountryDb(country);
+
+           var i = await loadContry.LoadContryDb();
 
 
             Console.ReadKey();

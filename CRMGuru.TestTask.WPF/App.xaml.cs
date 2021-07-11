@@ -1,6 +1,10 @@
-﻿using CRMGuru.TestTask.DAL.Context;
+﻿using AutoMapper;
+using CRMGuru.TestTask.DAL.Context;
 using CRMGuru.TestTask.DAL.Repositories;
+using CRMGuru.TestTask.Implementations.Profiles;
+using CRMGuru.TestTask.Implementations.Services;
 using CRMGuru.TestTask.Interfaces.Repositories;
+using CRMGuru.TestTask.Interfaces.Services;
 using CRMGuru.TestTask.WebApiClient;
 using CRMGuru.TestTask.WPF.ViewModels;
 using CRMGuru.TestTask.WPF.Views.Windows;
@@ -37,9 +41,17 @@ namespace CRMGuru.TestTask.WPF
         {
             services.AddDbContext<EFContext>(options => options.UseSqlServer(
                 host.Configuration.GetConnectionString("DefaultConnection"), o => o.MigrationsAssembly("CRMGuru.TestTask.DAL.MSSQL")));
-            
-            services.AddScoped<MainWindowViewModel>();
+
+            var mapperConfig = new MapperConfiguration(mc => mc.AddProfile(new CountryProfile()));
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddScoped<MainWindowViewModel>();          
             services.AddScoped<IDbRepository, EFRepositoty>();
+            services.AddScoped<IAddCountryService, AddCountryService>();
+            services.AddScoped<ILoadContryService, LoadContryService>();
+
             services.AddHttpClient<IWebRepository, WebRepository>(client => client.BaseAddress = new Uri(host.Configuration["RestCountries"]));
         }
 

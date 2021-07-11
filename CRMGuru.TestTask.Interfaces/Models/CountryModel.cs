@@ -1,17 +1,12 @@
 ﻿using CRMGuru.TestTask.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace CRMGuru.TestTask.DAL.Entities
+namespace CRMGuru.TestTask.Interfaces.Models
 {
-    /// <summary>
-    /// Страна
-    /// </summary>
-    public class Country : IEntity
+    public class CountryModel : IEntity
     {
-        [Key]
         public int Id { get; set; }
 
         /// <summary>
@@ -27,7 +22,7 @@ namespace CRMGuru.TestTask.DAL.Entities
         /// <summary>
         /// Столица
         /// </summary>
-        public City Сapital { get; set; }
+        public CityModel Сapital { get; set; }
 
         /// <summary>
         /// Площадь
@@ -42,6 +37,6 @@ namespace CRMGuru.TestTask.DAL.Entities
         /// <summary>
         /// Регион
         /// </summary>
-        public Region Region { get; set; }
+        public RegionModel Region { get; set; }
     }
 }

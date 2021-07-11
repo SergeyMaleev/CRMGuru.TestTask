@@ -1,24 +1,22 @@
 ﻿using CRMGuru.TestTask.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace CRMGuru.TestTask.DAL.Entities
+namespace CRMGuru.TestTask.Interfaces.Models
 {
-    /// <summary>
-    /// Регион
-    /// </summary>
-    public class Region : IEntity
+    public class RegionModel : IEntity
     {
-        [Key]
-        [ForeignKey("Country")]
         public int Id { get; set; }
 
         /// <summary>
         /// Название
         /// </summary>
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
