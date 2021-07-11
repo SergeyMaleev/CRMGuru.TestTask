@@ -36,7 +36,6 @@ namespace CRMGuru.TestTask.WPF
             .CreateDefaultBuilder(Args)
             .ConfigureServices(ConfigureServices);
         
-
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
             services.AddDbContext<EFContext>(options => options.UseSqlServer(

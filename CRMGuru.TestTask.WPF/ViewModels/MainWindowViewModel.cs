@@ -1,13 +1,10 @@
-﻿using CRMGuru.TestTask.DAL.Entities;
-using CRMGuru.TestTask.Implementations.Services;
-using CRMGuru.TestTask.Interfaces.Models;
+﻿using CRMGuru.TestTask.Interfaces.Models;
 using CRMGuru.TestTask.Interfaces.Services;
 using CRMGuru.TestTask.WPF.ViewModels.Base;
 using CRMGuru.TestTask.WPF.Views.Windows;
 using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
@@ -24,6 +21,9 @@ namespace CRMGuru.TestTask.WPF.ViewModels
         private bool _listCountriesStatus;
         private CurrentCountryApiWindow _countryApiWindow;
 
+        /// <summary>
+        /// Статус отображения списка стран
+        /// </summary>
         public bool ListCountriesStatus
         {
             get => _listCountriesStatus;
@@ -46,7 +46,9 @@ namespace CRMGuru.TestTask.WPF.ViewModels
           set => Set(ref _countries, value);
         }
         
-        
+        /// <summary>
+        /// Страна от Api сервера
+        /// </summary>
         public CountryModel CurrentCountry 
         { 
             get => _currentCountry; 
@@ -88,16 +90,22 @@ namespace CRMGuru.TestTask.WPF.ViewModels
             {
                 MessageBox.Show($"Ошибка ответа сервера {e.Message}");
             }
-            
-
         }, () => !String.IsNullOrEmpty(InputContryName));
              
         /// <summary>
         /// Загрузка стран из базы данных
         /// </summary>
         public ICommand LoadCountriesDbCommand => new DelegateCommand(async () => {
-            ListCountriesStatus = true;           
-            Countries = await _loadContry.LoadContryDb();
+            ListCountriesStatus = true;
+            try
+            {
+                Countries = await _loadContry.LoadContryDb();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка в работе с базой данных {e.Message}, попробуйте еще раз ");
+            }
+            
             
             MessageBox.Show("Обновлено");
         });

@@ -30,23 +30,10 @@ namespace CRMGuru.TestTask.WPF.Views.Windows
             get => (CountryModel) GetValue(CountryProperty); 
             set => SetValue(CountryProperty, value); 
         }
-       
-        
-        public CurrentCountryApiWindow()
-        {
-            InitializeComponent();
-        }
+              
+        public CurrentCountryApiWindow() => InitializeComponent();
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = true;
-        }
-
-        private void Сancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
-        }
-
-
+        private void Save_Click(object sender, RoutedEventArgs e) => this.DialogResult = true;
+        private void Сancel_Click(object sender, RoutedEventArgs e) => this.DialogResult = false;
     }
 }

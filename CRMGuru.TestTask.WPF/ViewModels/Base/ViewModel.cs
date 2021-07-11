@@ -21,8 +21,6 @@ namespace CRMGuru.TestTask.WPF.ViewModels.Base
             field = value;
             OnPropertyChanged(propertyName);
             return true;
-
-
         }
     }
 }

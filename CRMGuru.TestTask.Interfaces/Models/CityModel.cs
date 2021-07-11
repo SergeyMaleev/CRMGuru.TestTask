@@ -1,7 +1,5 @@
 ﻿using CRMGuru.TestTask.Interfaces.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CRMGuru.TestTask.Interfaces.Models
 {

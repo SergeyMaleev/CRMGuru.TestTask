@@ -1,7 +1,4 @@
 ﻿using CRMGuru.TestTask.Interfaces.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json.Serialization;
 
 namespace CRMGuru.TestTask.Interfaces.Models

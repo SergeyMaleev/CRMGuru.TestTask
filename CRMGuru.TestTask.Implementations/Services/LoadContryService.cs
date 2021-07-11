@@ -3,7 +3,6 @@ using CRMGuru.TestTask.Interfaces.Repositories;
 using CRMGuru.TestTask.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using AutoMapper;
@@ -41,18 +40,27 @@ namespace CRMGuru.TestTask.Implementations.Services
 
         public async Task<IEnumerable<CountryModel>> LoadContryDb()
         {
-            var countries = await _dbRepository.GetAll<CountryEntity>();
+            try
+            {
+                var countries = await _dbRepository.GetAll<CountryEntity>();
 
-            var result = countries.Select( x => new CountryModel {
-            Id = x.Id,
-            Name = x.Name,
-            Population = x.Population,
-            Area = x.Area,
-            CountryCode = x.CountryCode,
-            Region = new RegionModel { Id = x.Region.Id, Name = x.Region.Name},
-            Сapital = new CityModel { Id = x.Сapital.Id, Name = x.Сapital.Name }
-            });
-            return _mapper.Map<IEnumerable<CountryModel>>(result);
+                var result = countries.Select(x => new CountryModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Population = x.Population,
+                    Area = x.Area,
+                    CountryCode = x.CountryCode,
+                    Region = new RegionModel { Id = x.Region.Id, Name = x.Region.Name },
+                    Сapital = new CityModel { Id = x.Сapital.Id, Name = x.Сapital.Name }
+                });
+                return _mapper.Map<IEnumerable<CountryModel>>(result);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+           
         }
     }
 }
