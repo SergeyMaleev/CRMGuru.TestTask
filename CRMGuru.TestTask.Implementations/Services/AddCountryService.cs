@@ -22,8 +22,7 @@ namespace CRMGuru.TestTask.Implementations.Services
             _dbRepository = dbRepository;
             _mapper = mapper;
         }
-      
-        
+           
         public async Task AddCountryDb(CountryModel item)
         {
             var entity = _mapper.Map<CountryEntity>(item);
@@ -59,8 +58,7 @@ namespace CRMGuru.TestTask.Implementations.Services
             catch (Exception e)
             {
                 throw new Exception(e.Message);
-            }
-            
+            }           
         }
     }
 }
