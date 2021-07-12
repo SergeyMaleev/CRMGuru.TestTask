@@ -52,7 +52,7 @@
                   >
             <ListView
             Grid.Row="1"
-            ItemsSource="{Binding Countries, UpdateSourceTrigger=PropertyChanged}"           
+            ItemsSource="{Binding Countries, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"           
             >
                 <ListView.View>
                     <GridView>

@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMGuru.TestTask.DAL.MSSQL", "CRMGuru.TestTask.DAL.MSSQL\CRMGuru.TestTask.DAL.MSSQL.csproj", "{9086AC0B-6FDC-4BCA-8703-4E1AF69B8647}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{28910B37-D775-4FA2-8F45-0DFA183CBE69}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Users\User\CRMGuruCountryTest.bak = ..\..\..\Users\User\CRMGuruCountryTest.bak
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{3A0B750E-9949-48CC-B3D6-5F69467C7E1E}"
 EndProject
@@ -21,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMGuru.TestTask.WebApiClie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMGuru.TestTask.ConsoleTest", "CRMGuru.TestTask.ConsoleTest\CRMGuru.TestTask.ConsoleTest.csproj", "{ECF543A0-A0A6-4459-8940-B99DD3E9BC11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMGuru.TestTask.Implementations", "CRMGuru.TestTask.Implementations\CRMGuru.TestTask.Implementations.csproj", "{047B9DF4-B019-4B5B-8A1F-4AE6CA34D618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMGuru.TestTask.Implementations", "CRMGuru.TestTask.Implementations\CRMGuru.TestTask.Implementations.csproj", "{047B9DF4-B019-4B5B-8A1F-4AE6CA34D618}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

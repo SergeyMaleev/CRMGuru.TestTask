@@ -59,7 +59,7 @@ namespace CRMGuru.TestTask.WPF.ViewModels
         {
             _addCountry = addCountry;
             _loadContry = loadContry;
-             Title = "Главная страница сайта";       
+             Title = "Тестовое задание CRMGuru";       
         }
 
         /// <summary>
@@ -80,6 +80,7 @@ namespace CRMGuru.TestTask.WPF.ViewModels
                     _countryApiWindow.Close();
 
                     MessageBox.Show("Успешно добавлено");
+                    
                 }
                 else
                 {
@@ -105,7 +106,6 @@ namespace CRMGuru.TestTask.WPF.ViewModels
             {
                 MessageBox.Show($"Ошибка в работе с базой данных {e.Message}, попробуйте еще раз ");
             }
-            
             
             MessageBox.Show("Обновлено");
         });

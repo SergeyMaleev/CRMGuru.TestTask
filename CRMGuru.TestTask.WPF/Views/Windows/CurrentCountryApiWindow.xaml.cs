@@ -27,7 +27,7 @@ namespace CRMGuru.TestTask.WPF.Views.Windows
             
         public CountryModel CountryModel 
         { 
-            get => (CountryModel) GetValue(CountryProperty); 
+            get => (CountryModel)GetValue(CountryProperty); 
             set => SetValue(CountryProperty, value); 
         }
               
